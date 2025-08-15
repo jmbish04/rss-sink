@@ -59,13 +59,14 @@ export default defineEventHandler(async (event) => {
             where: (posts, { inArray }) => inArray(posts.externalId, newPosts.map(p => p.externalId as string)),
           });
 
-          for (const post of insertedPosts) {
-            // Fire-and-forget
+          const processingPromises = insertedPosts.map(post =>
             fetch(processUrl, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ postId: post.id }),
-            }).catch(e => console.error(`Failed to trigger processing for post ${post.id}`, e));
+            }).catch(e => console.error(`Failed to trigger processing for post ${post.id}`, e))
+          );
+          event.waitUntil(Promise.allSettled(processingPromises));
           }
 
           // Log analytics event
