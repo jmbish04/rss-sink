@@ -1,0 +1,18 @@
+project: rss-sink
+parent_issue: "https://github.com/jmbish04/rss-sink/issues/2"
+tasks:
+  - branch: feat/auth-protect-expensive-endpoints
+    title: "feat(auth): protect process & scaffold endpoints with token"
+    checklist: auth
+  - branch: fix/list-reactivity-and-removal
+    title: "fix(ui): correct infinite-scroll flags and mark-as-read removal"
+    checklist: list
+  - branch: feat/validation-schemas
+    title: "feat(validation): enforce schemas on AI and external payloads"
+    checklist: validation
+  - branch: refactor/use-post-list-composable
+    title: "refactor(ui): extract shared list logic to composable"
+    checklist: composable
+  - branch: fix/db-timestamps
+    title: "fix(db): correct createdAt/updatedAt semantics"
+    checklist: db
