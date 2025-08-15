@@ -3,8 +3,8 @@
   "name": "sink",
   "main": "dist/server/index.mjs",
   "assets": {
-    "binding": "ASSETS",
-    "directory": "dist/public"
+    "binding": "ASSETS_INDEX",
+    "directory": "dist"
   },
   "compatibility_date": "2025-05-08",
   "compatibility_flags": [
@@ -24,15 +24,15 @@
   "kv_namespaces": [
     {
       "binding": "KV",
-      "id": "cf74f650f92043b78ef5c40f1f03f0a6"
+      "id": "eb96c21d4a51452482b6054405c1aab9"
     }
   ],
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "content-aggregator-db",
-      "database_id": "d1f6e02d-9a67-4f24-9de3-2f2d79b1b707",
-      "preview_database_id": "d1f6e02d-9a67-4f24-9de3-2f2d79b1b707"
+      "database_name": "rss-content-aggregator",
+      "database_id": "b4d12a4f-de67-4c97-982c-de99281a8d02",
+      "preview_database_id": "73de9dc9-a87d-4635-aabf-e1701b82a9e2"
     }
   ],
   "r2_buckets": [
@@ -44,8 +44,9 @@
   ],
   "vectorize": [
     {
+      // wrangler vectorize create rss-content-aggregator-index --dimensions=1536 --metric=cosine
       "binding": "VECTORIZE",
-      "index_name": "content-aggregator-index"
+      "index_name": "rss-content-aggregator-index"
     }
   ],
   "triggers": {
