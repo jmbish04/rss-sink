@@ -11,6 +11,21 @@ const route = useRoute()
     >
       <TabsList>
         <TabsTrigger
+          value="/dashboard/inbox"
+        >
+          Inbox
+        </TabsTrigger>
+        <TabsTrigger
+          value="/dashboard/saved"
+        >
+          Saved
+        </TabsTrigger>
+        <TabsTrigger
+          value="/dashboard/archive"
+        >
+          Archive
+        </TabsTrigger>
+        <TabsTrigger
           value="/dashboard/links"
         >
           {{ $t('nav.links') }}
@@ -20,6 +35,9 @@ const route = useRoute()
         </TabsTrigger>
         <TabsTrigger value="/dashboard/realtime">
           {{ $t('nav.realtime') }}
+        </TabsTrigger>
+        <TabsTrigger value="/dashboard/settings">
+          Settings
         </TabsTrigger>
       </TabsList>
     </Tabs>
