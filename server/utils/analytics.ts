@@ -19,12 +19,13 @@ export function logAnalyticsEvent(event: H3Event, eventData: AnalyticsEvent) {
   const blobs: string[] = [name];
   const doubles: number[] = [];
 
-  // A simple way to map properties to blobs.
-  // A more robust implementation might handle different data types.
-  for (const [key, value] of Object.entries(properties)) {
-    blobs.push(key);
-    blobs.push(String(value));
-  }
+  // A more robust way to map properties.
+  const blobs: (string | null)[] = [name, null, null]; // event_name, source_type, source_name
+  const doubles: (number | null)[] = [0]; // post_count
+
+  if (properties.source_type) blobs[1] = String(properties.source_type);
+  if (properties.source_name) blobs[2] = String(properties.source_name);
+  if (typeof properties.post_count === 'number') doubles[0] = properties.post_count;
 
   analyticsEngine.writeDataPoint({
     // Indexes are used to query the data later. Let's use the event name as the first index.
