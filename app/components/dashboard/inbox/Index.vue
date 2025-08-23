@@ -109,7 +109,7 @@ async function handleMarkAsRead(postId) {
     const index = posts.value.findIndex(p => p.id === postId);
     if (index > -1) {
       posts.value.splice(index, 1);
-    }
+// Your improved code here
     toast.success('Post marked as read.');
   } catch (error) {
     console.error('Failed to mark post as read:', error);
